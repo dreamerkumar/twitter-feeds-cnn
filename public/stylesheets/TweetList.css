@@ -64,3 +64,7 @@ h1 {
 	height: 32px;
 	float: right;
 }
+
+.no-tweets-found {
+	color: white;
+}

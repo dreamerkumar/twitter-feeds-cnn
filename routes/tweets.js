@@ -31,12 +31,18 @@ router.get('/user_timeline/:user', function(req, res) {
   // request data 
   twitter.get(USER_TIMELINE_URL, params, function (err, data, resp) {
 
-    tweets = data;
+    if(!data || !data.length){
+      console.error('No tweets found');
+      res.setHeader('Content-Type', 'application/json');
+      res.send(oEmbedTweets);
+    } else {
+      tweets = data;
 
-    var i = 0, len = tweets.length;
+      var i = 0, len = tweets.length;
 
-    for(i; i < len; i++) {
-      getOEmbed(tweets[i]);
+      for(i; i < len; i++) {
+        getOEmbed(tweets[i]);
+      }
     }
   });
 

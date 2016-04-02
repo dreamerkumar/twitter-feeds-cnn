@@ -45,22 +45,31 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
       // create Tweet data resource
       $scope.tweets = $resource('/tweets/:action/:user', params);
 
+      $scope.noTweetsFound = false;
+
       // GET request using the resource
       $scope.tweets.query( { }, function (res) {
 
-        if( angular.isUndefined(paging) ) {
+        if(!res || !res.length){
           $scope.tweetsResult = [];
+          $scope.noTweetsFound = true;
+        } else {
+
+          if( angular.isUndefined(paging) ) {
+            $scope.tweetsResult = [];
+          }
+
+          $scope.tweetsResult = $scope.tweetsResult.concat(res);
+
+          // for paging - https://dev.twitter.com/docs/working-with-timelines
+          $scope.maxId = res[res.length - 1].id;
         }
-
-        $scope.tweetsResult = $scope.tweetsResult.concat(res);
-
-        // for paging - https://dev.twitter.com/docs/working-with-timelines
-        $scope.maxId = res[res.length - 1].id;
 
         // render tweets with widgets.js
         $timeout(function () {
           twttr.widgets.load();
         }, 30);
+
       });
     }
 

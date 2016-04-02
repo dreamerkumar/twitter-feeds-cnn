@@ -45,6 +45,10 @@
 	   			</div>
 			</div>
 
+			<div ng-show="noTweetsFound" class="no-tweets-found">
+				No tweets found. Please check the username.
+			</div>
+
 			<div class="row clearfix">
 				<div class="col-lg-12">
 
@@ -56,13 +60,11 @@
 			    			<!-- sanitized HTML binding -->
 							<div ng-bind-html="tweet.oEmbed.html"></div>
 			    		</div>
-
 			    	</div>
+			    </div>
+	  	    </div>
 
-			  </div>
-	  	</div>
-
-			<div class="row">
+			<div class="row" ng-show="tweetsResult.length">
 				<div class="col-lg-12">
 
 					<!-- this button will trigger the getMoreTweets function in the javascript controller -->
