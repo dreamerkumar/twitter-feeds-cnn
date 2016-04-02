@@ -40,7 +40,7 @@
 						<input type="text" class="form-control" placeholder="Enter a username to see tweets" ng-model="username">
 
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Get Tweets</button>
+							<button class="btn btn-default" type="submit" ng-disabled="!username || !username.length">Get Tweets</button>
 						</span>
 
 					</form>
