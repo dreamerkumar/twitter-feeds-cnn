@@ -1,6 +1,4 @@
-var app = angular.module('Twitter', ['ngResource', 'ngSanitize']);
-
-app.controller('TweetList', function($scope, $resource, $timeout) {
+angular.module('tweets').controller('TweetsController', function($scope, $timeout, TweetsFactory) {
 
     /**
      * init controller and set defaults
@@ -42,13 +40,10 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
         params.max_id = $scope.maxId;
       }
 
-      // create Tweet data resource
-      $scope.tweets = $resource('/tweets/:action/:user', params);
-
       $scope.noTweetsFound = false;
 
       // GET request using the resource
-      $scope.tweets.query( { }, function (res) {
+      TweetsFactory.query(params, function (res) {
 
         if(!res || !res.length){
           $scope.tweetsResult = [];

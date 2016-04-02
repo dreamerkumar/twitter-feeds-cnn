@@ -1,5 +1,5 @@
 	<!doctype html>
-	<html lang="en" ng-app="Twitter">
+	<html lang="en" ng-app="tweets">
 	<head>
 		<meta charset="utf-8">
 		<title><%= title %></title>
@@ -14,12 +14,14 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
 		<script src="//platform.twitter.com/widgets.js"></script>
-		<script src="/javascripts/TweetList.js"></script>
+		<script src="/javascripts/tweets.module.js"></script>
+		<script src="/javascripts/tweets.controller.js"></script>
+		<script src="/javascripts/tweets.factory.js"></script>			
 	</head>
 	<body>
 
 		<!-- the root element of the view assigned to the TweetList javascript controller-->
-		<div ng-controller="TweetList">
+		<div ng-controller="TweetsController">
 
 			<div class="row">
 				<div class="col-lg-12">
