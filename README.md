@@ -36,6 +36,20 @@ npm start
 Go to [http://localhost:5000](http://localhost:5000) in your browser.
 
 
+Running Unit Tests
+----
+
+Before running the tests, make sure karma-cli is installed globally
+```
+sudo npm install -g karma-cli
+```
+
+Use the below command line arguments to run the unit tests
+
+```
+$ grunt karma:unit
+```
+
 Resources
 ----
 - [Angular Developer Guide](https://docs.angularjs.org/guide)
