@@ -54,16 +54,7 @@
 			    		<div ng-repeat="tweet in tweetsResult" class="tweet-item">
 
 			    			<!-- sanitized HTML binding -->
-								<div ng-bind-html="tweet.oEmbed.html"></div>
-
-								<!-- binding to Tweet source property -->
-								<div class="tweet-details">
-									Tweeted from <span ng-bind-html="tweet.source"></span>
-
-									<!-- play around with rendering different Tweet properties -->
-									<!-- <p>{{tweet.user.screen_name}}</p> -->
-									<!-- <p>{{tweet.text}}</p> -->
-								</div>
+							<div ng-bind-html="tweet.oEmbed.html"></div>
 			    		</div>
 
 			    	</div>
